@@ -1,15 +1,14 @@
 import { Resolver, Query } from '@nestjs/graphql';
 
-import { PrismaService } from '@shared/prisma/services';
-
 import { Color } from '../models';
+import { SwatchService } from '../services';
 
 @Resolver(() => Color)
 export class ColorResolver {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(private readonly swatchService: SwatchService) {}
 
-  @Query(() => Color, { name: 'color' })
-  async getColor(): Promise<Color> {
-    return this.prismaService.color.findOne({ where: { id: 1 } });
+  @Query(() => Color, { name: 'color', nullable: true })
+  async getColor(): Promise<Color | null> {
+    return this.swatchService.getColorByID(2);
   }
 }

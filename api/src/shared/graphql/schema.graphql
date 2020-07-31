@@ -8,5 +8,5 @@ type Color {
 }
 
 type Query {
-  color: Color!
+  color: Color
 }
