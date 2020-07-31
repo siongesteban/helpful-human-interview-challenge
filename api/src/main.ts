@@ -10,8 +10,6 @@ const bootstrap = async () => {
   const configService = await app.get<Config>(ConfigService);
 
   const port = configService.get<string>('PORT');
-  console.log('::port', typeof port, port);
-  console.log('::NODE_ENV', configService.get<string>('NODE_ENV'));
 
   await app.listen(port);
 };
