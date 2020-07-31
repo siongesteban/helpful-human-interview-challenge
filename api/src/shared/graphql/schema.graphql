@@ -2,11 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Color {
-  """Name of the color."""
+type Hue {
+  id: Int!
+
+  """Name of the color hue."""
   name: String!
 }
 
 type Query {
-  color: Color
+  hues: [Hue!]!
 }

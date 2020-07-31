@@ -9,7 +9,7 @@ import { Repository } from '@shared/types';
 export class HueRepository implements Repository<Hue> {
   constructor(private readonly prismaService: PrismaService) {}
 
-  getByID(id: number): Promise<Hue | null> {
-    return this.prismaService.hue.findOne({ where: { id } });
+  getAll(): Promise<Hue[]> {
+    return this.prismaService.hue.findMany();
   }
 }

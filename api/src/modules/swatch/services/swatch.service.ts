@@ -8,7 +8,7 @@ import { HueRepository } from '../repositories';
 export class SwatchService {
   constructor(private readonly hueRepository: HueRepository) {}
 
-  async getHueByID(hueID: number): Promise<Hue | null> {
-    return this.hueRepository.getByID(hueID);
+  async getAllHues(): Promise<Hue[]> {
+    return this.hueRepository.getAll();
   }
 }

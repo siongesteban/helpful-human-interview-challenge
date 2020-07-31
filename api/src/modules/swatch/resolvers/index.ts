@@ -1,1 +1,1 @@
-export * from './color.resolver';
+export * from './hue.resolver';
