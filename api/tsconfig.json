@@ -8,8 +8,12 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
+    "incremental": true,
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"]
+    }
   }
 }
