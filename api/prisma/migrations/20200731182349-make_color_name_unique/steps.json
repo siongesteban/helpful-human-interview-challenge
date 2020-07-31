@@ -1,0 +1,25 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Model",
+          "model": "Color",
+          "arguments": [
+            {
+              "name": "",
+              "value": "[name]"
+            },
+            {
+              "name": "name",
+              "value": "\"unique_color\""
+            }
+          ]
+        },
+        "directive": "unique"
+      }
+    }
+  ]
+}

@@ -1,3 +1,4 @@
 # Prisma Migrate lockfile v1
 
 20200731171640-create-initial-color-table
+20200731182349-make_color_name_unique
