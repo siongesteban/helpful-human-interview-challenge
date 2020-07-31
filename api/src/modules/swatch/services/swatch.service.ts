@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 
-import { Color } from '@prisma/client';
+import { Hue } from '@prisma/client';
 
-import { ColorRepository } from '../repositories';
+import { HueRepository } from '../repositories';
 
 @Injectable()
 export class SwatchService {
-  constructor(private readonly colorRepository: ColorRepository) {}
+  constructor(private readonly hueRepository: HueRepository) {}
 
-  async getColorByID(colorId: number): Promise<Color | null> {
-    return this.colorRepository.getByID(colorId);
+  async getHueByID(hueID: number): Promise<Hue | null> {
+    return this.hueRepository.getByID(hueID);
   }
 }

@@ -9,6 +9,6 @@ export class ColorResolver {
 
   @Query(() => Color, { name: 'color', nullable: true })
   async getColor(): Promise<Color | null> {
-    return this.swatchService.getColorByID(2);
+    return this.swatchService.getHueByID(2);
   }
 }

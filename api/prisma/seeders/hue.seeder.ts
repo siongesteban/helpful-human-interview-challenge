@@ -1,8 +1,8 @@
-import { PrismaClient, ColorCreateInput } from '@prisma/client';
+import { PrismaClient, HueCreateInput } from '@prisma/client';
 
 import { logStart, logEnd } from '../log.prisma';
 
-const colors: ColorCreateInput[] = [
+const hues: HueCreateInput[] = [
   {
     name: 'red',
     shades: {
@@ -286,17 +286,17 @@ const colors: ColorCreateInput[] = [
 ];
 
 const reset = async (prisma: PrismaClient): Promise<void> => {
-  await prisma.executeRaw('TRUNCATE TABLE color CASCADE');
+  await prisma.executeRaw('TRUNCATE TABLE hue RESTART IDENTITY CASCADE;');
 };
 
-export const seedColor = async (prisma: PrismaClient): Promise<void> => {
-  logStart('color');
+export const seedHue = async (prisma: PrismaClient): Promise<void> => {
+  logStart('hue');
 
   await reset(prisma);
 
-  for (const color of colors) {
-    await prisma.color.create({ data: color });
+  for (const hue of hues) {
+    await prisma.hue.create({ data: hue });
   }
 
-  logEnd('color');
+  logEnd('hue');
 };

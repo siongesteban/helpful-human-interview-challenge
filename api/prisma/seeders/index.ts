@@ -1,1 +1,1 @@
-export * from './color.seeder';
+export * from './hue.seeder';

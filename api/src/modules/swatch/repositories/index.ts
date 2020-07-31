@@ -1,1 +1,1 @@
-export * from './color.repository';
+export * from './hue.repository';
