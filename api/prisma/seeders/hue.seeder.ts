@@ -4,7 +4,7 @@ import { logStart, logEnd } from '../log.prisma';
 
 const hues: HueCreateInput[] = [
   {
-    name: 'red',
+    name: 'Red',
     shades: {
       create: [
         {
@@ -39,7 +39,7 @@ const hues: HueCreateInput[] = [
     },
   },
   {
-    name: 'orange',
+    name: 'Orange',
     shades: {
       create: [
         {
@@ -74,7 +74,42 @@ const hues: HueCreateInput[] = [
     },
   },
   {
-    name: 'yellow',
+    name: 'Deep Orange',
+    shades: {
+      create: [
+        {
+          hex: 'ffccbc',
+          number: 'S100',
+        },
+        {
+          hex: 'ffab91',
+          number: 'S200',
+        },
+        {
+          hex: 'ff8a65',
+          number: 'S300',
+        },
+        {
+          hex: 'ff7043',
+          number: 'S400',
+        },
+        {
+          hex: 'ff5722',
+          number: 'S500',
+        },
+        {
+          hex: 'f4511e',
+          number: 'S600',
+        },
+        {
+          hex: 'e64a19',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Yellow',
     shades: {
       create: [
         {
@@ -109,7 +144,7 @@ const hues: HueCreateInput[] = [
     },
   },
   {
-    name: 'green',
+    name: 'Green',
     shades: {
       create: [
         {
@@ -144,7 +179,7 @@ const hues: HueCreateInput[] = [
     },
   },
   {
-    name: 'blue',
+    name: 'Blue',
     shades: {
       create: [
         {
@@ -179,7 +214,42 @@ const hues: HueCreateInput[] = [
     },
   },
   {
-    name: 'purple',
+    name: 'Light Blue',
+    shades: {
+      create: [
+        {
+          hex: 'b3e5fc',
+          number: 'S100',
+        },
+        {
+          hex: '81d4fa',
+          number: 'S200',
+        },
+        {
+          hex: '4fc3f7',
+          number: 'S300',
+        },
+        {
+          hex: '29b6f6',
+          number: 'S400',
+        },
+        {
+          hex: '03a9f4',
+          number: 'S500',
+        },
+        {
+          hex: '039be5',
+          number: 'S600',
+        },
+        {
+          hex: '0288d1',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Purple',
     shades: {
       create: [
         {
@@ -214,7 +284,7 @@ const hues: HueCreateInput[] = [
     },
   },
   {
-    name: 'brown',
+    name: 'Brown',
     shades: {
       create: [
         {
@@ -249,7 +319,7 @@ const hues: HueCreateInput[] = [
     },
   },
   {
-    name: 'gray',
+    name: 'Gray',
     shades: {
       create: [
         {
@@ -278,6 +348,216 @@ const hues: HueCreateInput[] = [
         },
         {
           hex: '616161',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Blue Gray',
+    shades: {
+      create: [
+        {
+          hex: 'cfd8dc',
+          number: 'S100',
+        },
+        {
+          hex: 'b0bec5',
+          number: 'S200',
+        },
+        {
+          hex: '90a4ae',
+          number: 'S300',
+        },
+        {
+          hex: '78909c',
+          number: 'S400',
+        },
+        {
+          hex: '607d8b',
+          number: 'S500',
+        },
+        {
+          hex: '546e7a',
+          number: 'S600',
+        },
+        {
+          hex: '455a64',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Pink',
+    shades: {
+      create: [
+        {
+          hex: 'f8bbd0',
+          number: 'S100',
+        },
+        {
+          hex: 'f48fb1',
+          number: 'S200',
+        },
+        {
+          hex: 'f06292',
+          number: 'S300',
+        },
+        {
+          hex: 'ec407a',
+          number: 'S400',
+        },
+        {
+          hex: 'e91e63',
+          number: 'S500',
+        },
+        {
+          hex: 'd81b60',
+          number: 'S600',
+        },
+        {
+          hex: 'c2185b',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Indigo',
+    shades: {
+      create: [
+        {
+          hex: 'c5cae9',
+          number: 'S100',
+        },
+        {
+          hex: '9fa8da',
+          number: 'S200',
+        },
+        {
+          hex: '7986cb',
+          number: 'S300',
+        },
+        {
+          hex: '5c6bc0',
+          number: 'S400',
+        },
+        {
+          hex: '3f51b5',
+          number: 'S500',
+        },
+        {
+          hex: '3949ab',
+          number: 'S600',
+        },
+        {
+          hex: '303f9f',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Teal',
+    shades: {
+      create: [
+        {
+          hex: 'b2dfdb',
+          number: 'S100',
+        },
+        {
+          hex: '80cbc4',
+          number: 'S200',
+        },
+        {
+          hex: '4db6ac',
+          number: 'S300',
+        },
+        {
+          hex: '26a69a',
+          number: 'S400',
+        },
+        {
+          hex: '009688',
+          number: 'S500',
+        },
+        {
+          hex: '00897b',
+          number: 'S600',
+        },
+        {
+          hex: '00796b',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Lime',
+    shades: {
+      create: [
+        {
+          hex: 'f0f4c3',
+          number: 'S100',
+        },
+        {
+          hex: 'e6ee9c',
+          number: 'S200',
+        },
+        {
+          hex: 'dce775',
+          number: 'S300',
+        },
+        {
+          hex: 'd4e157',
+          number: 'S400',
+        },
+        {
+          hex: 'cddc39',
+          number: 'S500',
+        },
+        {
+          hex: 'c0ca33',
+          number: 'S600',
+        },
+        {
+          hex: 'afb42b',
+          number: 'S700',
+        },
+      ],
+    },
+  },
+  {
+    name: 'Amber',
+    shades: {
+      create: [
+        {
+          hex: 'ffecb3',
+          number: 'S100',
+        },
+        {
+          hex: 'ffe082',
+          number: 'S200',
+        },
+        {
+          hex: 'ffd54f',
+          number: 'S300',
+        },
+        {
+          hex: 'ffca28',
+          number: 'S400',
+        },
+        {
+          hex: 'ffc107',
+          number: 'S500',
+        },
+        {
+          hex: 'ffb300',
+          number: 'S600',
+        },
+        {
+          hex: 'ffa000',
           number: 'S700',
         },
       ],
