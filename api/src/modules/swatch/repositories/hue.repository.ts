@@ -12,4 +12,8 @@ export class HueRepository implements Repository<Hue> {
   getAll(): Promise<Hue[]> {
     return this.prismaService.hue.findMany();
   }
+
+  getByID(hueID: number): Promise<Hue> {
+    return this.prismaService.hue.findOne({ where: { id: hueID } });
+  }
 }

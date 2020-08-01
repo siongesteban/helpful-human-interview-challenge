@@ -11,4 +11,15 @@ type Hue {
 
 type Query {
   hues: [Hue!]!
+  shades: [Shade!]!
+}
+
+type Shade {
+  """Hex code of the color."""
+  hex: String!
+  hue: Hue!
+  id: Int!
+
+  """Shade number."""
+  number: String!
 }
