@@ -1,13 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Shade } from '@prisma/client';
 
+import { BaseRepository } from '@shared/classes';
 import { PrismaService } from '@shared/prisma/services';
 import { Paginated, PaginationParams, Repository } from '@shared/types';
-import { createPaginatedList, getPaginationOffset } from '@shared/utils';
 
 @Injectable()
-export class ShadeRepository implements Repository<Shade> {
-  constructor(private readonly prismaService: PrismaService) {}
+export class ShadeRepository extends BaseRepository<Shade>
+  implements Repository<Shade> {
+  constructor(private readonly prismaService: PrismaService) {
+    super();
+  }
 
   async getPaginated(params: PaginationParams): Promise<Paginated<Shade>> {
     const { page, pageSize } = params;
@@ -16,10 +19,10 @@ export class ShadeRepository implements Repository<Shade> {
 
     const shades = await this.prismaService.shade.findMany({
       take: pageSize,
-      skip: getPaginationOffset({ page, pageSize }),
+      skip: this.getPaginationOffset({ page, pageSize }),
     });
 
-    return createPaginatedList({
+    return this.createPaginationPayload({
       count,
       page,
       pageSize,
