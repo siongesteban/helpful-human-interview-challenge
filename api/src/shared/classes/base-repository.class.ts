@@ -8,6 +8,17 @@ interface CreatePaginatedListPayload<T> {
 }
 
 export class BaseRepository<T> {
+  protected defaultPage = 1;
+  protected defaultPageSize = 10;
+
+  protected getPage(page?: number): number {
+    return page || this.defaultPage;
+  }
+
+  protected getPageSize(pageSize?: number): number {
+    return pageSize || this.defaultPageSize;
+  }
+
   protected createPaginationPayload({
     data,
     page,

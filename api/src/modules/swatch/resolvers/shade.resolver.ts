@@ -21,7 +21,7 @@ export class ShadeResolver {
 
   @Query(() => PaginatedShades, { name: 'paginatedShades' })
   async getPaginatedShades(
-    @Args() args: GetPaginatedShadesArgs,
+    @Args() args?: GetPaginatedShadesArgs,
   ): Promise<PaginatedList<Shade>> {
     const { page, pageSize } = args;
     return this.swatchService.getPaginatedShades({ page, pageSize });

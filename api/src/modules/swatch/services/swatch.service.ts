@@ -17,7 +17,7 @@ export class SwatchService {
   }
 
   async getPaginatedShades(
-    params: PaginationParams,
+    params?: PaginationParams,
   ): Promise<PaginatedList<Shade>> {
     return this.shadeRepository.getPaginatedList(params);
   }
