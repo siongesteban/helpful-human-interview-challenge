@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { HueLoaderCreator } from './loaders';
+import { HueLoaderCreator, ShadesLoaderCreator } from './loaders';
 import { HueRepository, ShadeRepository } from './repositories';
 import { HueResolver, ShadeResolver } from './resolvers';
 import { SwatchService } from './services';
@@ -13,7 +13,8 @@ import { SwatchService } from './services';
     ShadeResolver,
     SwatchService,
     HueLoaderCreator,
+    ShadesLoaderCreator,
   ],
-  exports: [HueLoaderCreator],
+  exports: [HueLoaderCreator, ShadesLoaderCreator],
 })
 export class SwatchModule {}

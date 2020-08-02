@@ -11,4 +11,16 @@ export class ShadeRepository implements Repository<Shade> {
   getAll(): Promise<Shade[]> {
     return this.prismaService.shade.findMany();
   }
+
+  getMany(params: { hueIDs?: number[] } = {}): Promise<Shade[]> {
+    const { hueIDs } = params;
+
+    return this.prismaService.shade.findMany({
+      where: {
+        hueId: {
+          in: hueIDs,
+        },
+      },
+    });
+  }
 }
