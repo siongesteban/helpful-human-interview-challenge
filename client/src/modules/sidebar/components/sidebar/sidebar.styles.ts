@@ -4,9 +4,6 @@ const Wrapper = styled.aside`
   background: #d6d8d8;
   border: 1px solid #adadad;
   box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 100px;
-  bottom: 0;
   width: 320px;
   padding: 80px 30px;
 `;
