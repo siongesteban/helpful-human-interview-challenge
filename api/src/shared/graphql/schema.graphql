@@ -10,9 +10,21 @@ type Hue {
   shades: [Shade!]!
 }
 
+type PaginatedShades {
+  meta: PaginationMeta!
+  nodes: [Shade!]!
+}
+
+type PaginationMeta {
+  page: Int!
+  pageCount: Int!
+  pageSize: Int!
+  totalCount: Int!
+}
+
 type Query {
   hues: [Hue!]!
-  shades: [Shade!]!
+  shades(page: Int!, pageSize: Int!): PaginatedShades!
 }
 
 type Shade {

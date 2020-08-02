@@ -1,4 +1,5 @@
 import {
+  Args,
   Context,
   Parent,
   Resolver,
@@ -8,17 +9,22 @@ import {
 import { Hue, Shade } from '@prisma/client';
 
 import { GraphQLContext } from '@shared/graphql/types';
+import { Paginated } from '@shared/types';
 
-import { Shade as ShadeModel } from '../models';
+import { GetPaginatedShadesArgs } from '../dtos';
+import { Shade as ShadeModel, PaginatedShades } from '../models';
 import { SwatchService } from '../services';
 
 @Resolver(() => ShadeModel)
 export class ShadeResolver {
   constructor(private readonly swatchService: SwatchService) {}
 
-  @Query(() => [ShadeModel], { name: 'shades' })
-  async getPaginatedShades(): Promise<Shade[]> {
-    return this.swatchService.getPaginatedShades();
+  @Query(() => PaginatedShades, { name: 'shades' })
+  async getPaginatedShades(
+    @Args() args: GetPaginatedShadesArgs,
+  ): Promise<Paginated<Shade>> {
+    const { page, pageSize } = args;
+    return this.swatchService.getPaginatedShades({ page, pageSize });
   }
 
   @ResolveField()
