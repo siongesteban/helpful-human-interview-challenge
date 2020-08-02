@@ -1,6 +1,4 @@
 # Prisma Migrate lockfile v1
 
-20200731171640-create-initial-color-table
-20200731182349-make_color_name_unique
-20200731185500-create_initial_shade_table
-20200731220549-rename_color_table_to_hue
+20200803041144-create_initial_schema
+20200803041414-create_initial_schema
