@@ -7,6 +7,11 @@ const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap');
 
   font-family: 'Source Serif Pro', serif;
+
+  input {
+    border: 0;
+    outline: 0;
+  }
 `;
 
 export const S = {
