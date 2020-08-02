@@ -15,6 +15,7 @@
     "paths": {
       "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"]
-    }
+    },
+    "skipLibCheck": true
   }
 }
