@@ -3,6 +3,6 @@ import { PaginationParams } from './pagination-params.type';
 
 export interface Repository<T> {
   getAll?(): Promise<T[]>;
-  getPaginated?(params: PaginationParams): Promise<Paginated<T>>;
+  getPaginatedList?(params: PaginationParams): Promise<Paginated<T>>;
   getMany?(): Promise<T[]>;
 }

@@ -19,7 +19,7 @@ import { SwatchService } from '../services';
 export class ShadeResolver {
   constructor(private readonly swatchService: SwatchService) {}
 
-  @Query(() => PaginatedShades, { name: 'shades' })
+  @Query(() => PaginatedShades, { name: 'paginatedShades' })
   async getPaginatedShades(
     @Args() args: GetPaginatedShadesArgs,
   ): Promise<Paginated<Shade>> {

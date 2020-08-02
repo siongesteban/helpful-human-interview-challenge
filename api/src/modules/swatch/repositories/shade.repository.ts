@@ -12,7 +12,7 @@ export class ShadeRepository extends BaseRepository<Shade>
     super();
   }
 
-  async getPaginated(params: PaginationParams): Promise<Paginated<Shade>> {
+  async getPaginatedList(params: PaginationParams): Promise<Paginated<Shade>> {
     const { page, pageSize } = params;
 
     const count = await this.prismaService.shade.count();
