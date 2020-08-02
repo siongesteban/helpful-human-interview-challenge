@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Hue, Shade } from '@prisma/client';
 
-import { Paginated, PaginationParams } from '@shared/types';
+import { PaginatedList, PaginationParams } from '@shared/types';
 
 import { HueRepository, ShadeRepository } from '../repositories';
 
@@ -18,7 +18,7 @@ export class SwatchService {
 
   async getPaginatedShades(
     params: PaginationParams,
-  ): Promise<Paginated<Shade>> {
+  ): Promise<PaginatedList<Shade>> {
     return this.shadeRepository.getPaginatedList(params);
   }
 }

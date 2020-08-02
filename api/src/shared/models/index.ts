@@ -1,1 +1,1 @@
-export * from './paginated.model';
+export * from './paginated-list.model';

@@ -1,11 +1,11 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { Paginated } from '@shared/models';
+import { PaginatedList } from '@shared/models';
 
 import { Shade } from './shade.model';
 
 @ObjectType()
-export class PaginatedShades extends Paginated<Shade> {
+export class PaginatedShades extends PaginatedList<Shade> {
   @Field(() => [Shade])
-  nodes: Shade[];
+  list: Shade[];
 }

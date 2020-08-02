@@ -1,9 +1,9 @@
-export interface Paginated<T> {
+export interface PaginatedList<T> {
   meta: {
     page: number;
     pageSize: number;
     pageCount: number;
     totalCount: number;
   };
-  nodes: T[];
+  list: T[];
 }

@@ -1,4 +1,4 @@
-import { Paginated, PaginationParams } from '@shared/types';
+import { PaginatedList, PaginationParams } from '@shared/types';
 
 interface CreatePaginatedListPayload<T> {
   page: number;
@@ -13,7 +13,7 @@ export class BaseRepository<T> {
     page,
     pageSize,
     count,
-  }: CreatePaginatedListPayload<T>): Paginated<T> {
+  }: CreatePaginatedListPayload<T>): PaginatedList<T> {
     return {
       meta: {
         page,
@@ -21,7 +21,7 @@ export class BaseRepository<T> {
         pageCount: Math.ceil(count / pageSize),
         totalCount: count,
       },
-      nodes: data,
+      list: data,
     };
   }
 

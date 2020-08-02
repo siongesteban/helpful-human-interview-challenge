@@ -11,8 +11,8 @@ type Hue {
 }
 
 type PaginatedShades {
+  list: [Shade!]!
   meta: PaginationMeta!
-  nodes: [Shade!]!
 }
 
 type PaginationMeta {
@@ -24,7 +24,7 @@ type PaginationMeta {
 
 type Query {
   hues: [Hue!]!
-  paginatedShades(page: Int!, pageSize: Int!): PaginatedShades!
+  shades(page: Int!, pageSize: Int!): PaginatedShades!
 }
 
 type Shade {

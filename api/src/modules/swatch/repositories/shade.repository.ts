@@ -3,7 +3,7 @@ import { Shade } from '@prisma/client';
 
 import { BaseRepository } from '@shared/classes';
 import { PrismaService } from '@shared/prisma/services';
-import { Paginated, PaginationParams, Repository } from '@shared/types';
+import { PaginatedList, PaginationParams, Repository } from '@shared/types';
 
 @Injectable()
 export class ShadeRepository extends BaseRepository<Shade>
@@ -12,7 +12,9 @@ export class ShadeRepository extends BaseRepository<Shade>
     super();
   }
 
-  async getPaginatedList(params: PaginationParams): Promise<Paginated<Shade>> {
+  async getPaginatedList(
+    params: PaginationParams,
+  ): Promise<PaginatedList<Shade>> {
     const { page, pageSize } = params;
 
     const count = await this.prismaService.shade.count();

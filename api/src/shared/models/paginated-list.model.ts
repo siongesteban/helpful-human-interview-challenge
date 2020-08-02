@@ -16,9 +16,9 @@ class PaginationMeta {
 }
 
 @ObjectType()
-export abstract class Paginated<T> {
+export abstract class PaginatedList<T> {
   @Field(() => PaginationMeta)
   meta: PaginationMeta;
 
-  abstract nodes: T[];
+  abstract list: T[];
 }
