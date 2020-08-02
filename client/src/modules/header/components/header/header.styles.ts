@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.nav`
+const Wrapper = styled.header`
   background: #363c3c;
   font-size: 24px;
   display: flex;
