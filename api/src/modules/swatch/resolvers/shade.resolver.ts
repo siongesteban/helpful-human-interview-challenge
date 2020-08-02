@@ -23,8 +23,7 @@ export class ShadeResolver {
   async getPaginatedShades(
     @Args() args?: GetPaginatedShadesArgs,
   ): Promise<PaginatedList<Shade>> {
-    const { page, pageSize } = args;
-    return this.swatchService.getPaginatedShades({ page, pageSize });
+    return this.swatchService.getPaginatedShades(args);
   }
 
   @ResolveField()

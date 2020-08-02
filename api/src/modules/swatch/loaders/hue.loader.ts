@@ -1,11 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Hue } from '@prisma/client';
+import DataLoader from 'dataloader';
 
 import { HueRepository } from '../repositories';
 import { HueLoader } from '../types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const DataLoader = require('dataloader');
 
 @Injectable()
 export class HueLoaderCreator {

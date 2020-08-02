@@ -1,11 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Shade } from '@prisma/client';
+import DataLoader from 'dataloader';
 
 import { ShadeRepository } from '../repositories';
 import { ShadesLoader } from '../types';
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const DataLoader = require('dataloader');
 
 @Injectable()
 export class ShadesLoaderCreator {
