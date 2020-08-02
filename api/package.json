@@ -31,6 +31,7 @@
     "@nestjs/platform-express": "^7.0.0",
     "@prisma/client": "^2.3.0",
     "apollo-server-express": "^2.16.1",
+    "dataloader": "^2.0.0",
     "graphql": "^15.3.0",
     "graphql-tools": "^6.0.15",
     "module-alias": "^2.2.2",

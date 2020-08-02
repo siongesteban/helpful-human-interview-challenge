@@ -9,11 +9,19 @@ import { Repository } from '@shared/types';
 export class HueRepository implements Repository<Hue> {
   constructor(private readonly prismaService: PrismaService) {}
 
-  getAll(): Promise<Hue[]> {
-    return this.prismaService.hue.findMany();
+  getMany(params: { hueIDs?: number[] } = {}): Promise<Hue[]> {
+    const { hueIDs } = params;
+
+    return this.prismaService.hue.findMany({
+      where: {
+        id: {
+          in: hueIDs,
+        },
+      },
+    });
   }
 
-  getByID(hueID: number): Promise<Hue> {
-    return this.prismaService.hue.findOne({ where: { id: hueID } });
+  getAll(): Promise<Hue[]> {
+    return this.prismaService.hue.findMany();
   }
 }

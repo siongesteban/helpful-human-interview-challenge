@@ -15,10 +15,6 @@ export class SwatchService {
     return this.hueRepository.getAll();
   }
 
-  async getHueByID(hueID: number): Promise<Hue> {
-    return this.hueRepository.getByID(hueID);
-  }
-
   async getPaginatedShades(): Promise<Shade[]> {
     return this.shadeRepository.getAll();
   }

@@ -1,5 +1,13 @@
-import { Parent, Resolver, ResolveField, Query } from '@nestjs/graphql';
+import {
+  Context,
+  Parent,
+  Resolver,
+  ResolveField,
+  Query,
+} from '@nestjs/graphql';
 import { Hue, Shade } from '@prisma/client';
+
+import { GraphQLContext } from '@shared/graphql/types';
 
 import { Shade as ShadeModel } from '../models';
 import { SwatchService } from '../services';
@@ -14,9 +22,10 @@ export class ShadeResolver {
   }
 
   @ResolveField()
-  async hue(@Parent() shade: Shade): Promise<Hue> {
-    const { hueId } = shade;
-
-    return this.swatchService.getHueByID(hueId);
+  async hue(
+    @Parent() shade: Shade,
+    @Context() context: GraphQLContext,
+  ): Promise<Hue> {
+    return context.hueLoader.load(shade.hueId);
   }
 }
