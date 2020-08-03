@@ -14,7 +14,7 @@ const ROUTE_LIST: RouteList = [
     component: ColorListPage,
   },
   {
-    path: 'colors/:color/shades/:hex',
+    path: 'swatches/:hex',
     component: ColorViewPage,
   },
 ];
