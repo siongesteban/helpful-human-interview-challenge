@@ -1,6 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from '@reach/router';
 
+import { ColorCard } from '../../components';
+
 export const ColorListPage: React.FC<RouteComponentProps> = () => (
-  <h1>Color List</h1>
+  <ColorCard hex="ffc125" />
 );
