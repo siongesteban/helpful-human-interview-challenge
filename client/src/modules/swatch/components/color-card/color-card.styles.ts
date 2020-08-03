@@ -32,6 +32,9 @@ const Color = styled.div<ColorProps>`
 
 const Label = styled.div`
   background: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #363c3c;
   font-size: 24px;
   padding-top: 22px;
   padding-left: 24px;

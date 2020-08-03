@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { getHex } from '../../utils';
 import { S } from './color-card.styles';
 
 export interface ColorCardProps {
@@ -7,8 +8,6 @@ export interface ColorCardProps {
   readonly hex: string;
   readonly small?: boolean;
 }
-
-const getHex = (hex: string): string => (hex.startsWith('#') ? hex : `#${hex}`);
 
 export const ColorCard: React.FC<ColorCardProps> = ({
   fullWidth,
