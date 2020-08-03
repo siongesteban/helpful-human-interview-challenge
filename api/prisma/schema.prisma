@@ -10,15 +10,15 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Color {
+model Hue {
   id        Int      @default(autoincrement()) @id
   name      String
   createdAt DateTime @map("created_at") @default(now())
 
   swatches Swatch[]
 
-  @@map("color")
-  @@unique([name], name: "unique_color")
+  @@map("hue")
+  @@unique([name], name: "unique_hue")
 }
 
 model Swatch {
@@ -26,13 +26,13 @@ model Swatch {
   hex       String
   createdAt DateTime @map("created_at") @default(now())
 
-  parentColor   Color @relation(fields: [parentColorId], references: [id])
-  parentColorId Int   @map("parent_color_id")
+  hue   Hue @relation(fields: [hueId], references: [id])
+  hueId Int @map("hue_id")
 
-  swatchColors SwatchColor[]
+  colors SwatchColor[]
 
   @@map("swatch")
-  @@unique([hex, parentColorId], name: "unique_swatch")
+  @@unique([hex, hueId], name: "unique_swatch")
 }
 
 model SwatchColor {

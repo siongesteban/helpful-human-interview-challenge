@@ -90,11 +90,11 @@
     },
     {
       "tag": "CreateModel",
-      "model": "Color"
+      "model": "Hue"
     },
     {
       "tag": "CreateField",
-      "model": "Color",
+      "model": "Hue",
       "field": "id",
       "type": "Int",
       "arity": "Required"
@@ -104,7 +104,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "Color",
+          "model": "Hue",
           "field": "id"
         },
         "directive": "default"
@@ -116,7 +116,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "Color",
+          "model": "Hue",
           "field": "id"
         },
         "directive": "default"
@@ -129,7 +129,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "Color",
+          "model": "Hue",
           "field": "id"
         },
         "directive": "id"
@@ -137,14 +137,14 @@
     },
     {
       "tag": "CreateField",
-      "model": "Color",
+      "model": "Hue",
       "field": "name",
       "type": "String",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
-      "model": "Color",
+      "model": "Hue",
       "field": "createdAt",
       "type": "DateTime",
       "arity": "Required"
@@ -154,7 +154,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "Color",
+          "model": "Hue",
           "field": "createdAt"
         },
         "directive": "map"
@@ -166,7 +166,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "Color",
+          "model": "Hue",
           "field": "createdAt"
         },
         "directive": "map"
@@ -179,7 +179,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "Color",
+          "model": "Hue",
           "field": "createdAt"
         },
         "directive": "default"
@@ -191,7 +191,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "Color",
+          "model": "Hue",
           "field": "createdAt"
         },
         "directive": "default"
@@ -201,7 +201,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "Color",
+      "model": "Hue",
       "field": "swatches",
       "type": "Swatch",
       "arity": "List"
@@ -211,7 +211,7 @@
       "location": {
         "path": {
           "tag": "Model",
-          "model": "Color"
+          "model": "Hue"
         },
         "directive": "map"
       }
@@ -222,19 +222,19 @@
         "tag": "Directive",
         "path": {
           "tag": "Model",
-          "model": "Color"
+          "model": "Hue"
         },
         "directive": "map"
       },
       "argument": "",
-      "value": "\"color\""
+      "value": "\"hue\""
     },
     {
       "tag": "CreateDirective",
       "location": {
         "path": {
           "tag": "Model",
-          "model": "Color",
+          "model": "Hue",
           "arguments": [
             {
               "name": "",
@@ -242,7 +242,7 @@
             },
             {
               "name": "name",
-              "value": "\"unique_color\""
+              "value": "\"unique_hue\""
             }
           ]
         },
@@ -363,8 +363,8 @@
     {
       "tag": "CreateField",
       "model": "Swatch",
-      "field": "parentColor",
-      "type": "Color",
+      "field": "hue",
+      "type": "Hue",
       "arity": "Required"
     },
     {
@@ -373,7 +373,7 @@
         "path": {
           "tag": "Field",
           "model": "Swatch",
-          "field": "parentColor"
+          "field": "hue"
         },
         "directive": "relation"
       }
@@ -385,12 +385,12 @@
         "path": {
           "tag": "Field",
           "model": "Swatch",
-          "field": "parentColor"
+          "field": "hue"
         },
         "directive": "relation"
       },
       "argument": "fields",
-      "value": "[parentColorId]"
+      "value": "[hueId]"
     },
     {
       "tag": "CreateArgument",
@@ -399,7 +399,7 @@
         "path": {
           "tag": "Field",
           "model": "Swatch",
-          "field": "parentColor"
+          "field": "hue"
         },
         "directive": "relation"
       },
@@ -409,7 +409,7 @@
     {
       "tag": "CreateField",
       "model": "Swatch",
-      "field": "parentColorId",
+      "field": "hueId",
       "type": "Int",
       "arity": "Required"
     },
@@ -419,7 +419,7 @@
         "path": {
           "tag": "Field",
           "model": "Swatch",
-          "field": "parentColorId"
+          "field": "hueId"
         },
         "directive": "map"
       }
@@ -431,17 +431,17 @@
         "path": {
           "tag": "Field",
           "model": "Swatch",
-          "field": "parentColorId"
+          "field": "hueId"
         },
         "directive": "map"
       },
       "argument": "",
-      "value": "\"parent_color_id\""
+      "value": "\"hue_id\""
     },
     {
       "tag": "CreateField",
       "model": "Swatch",
-      "field": "swatchColors",
+      "field": "colors",
       "type": "SwatchColor",
       "arity": "List"
     },
@@ -477,7 +477,7 @@
           "arguments": [
             {
               "name": "",
-              "value": "[hex, parentColorId]"
+              "value": "[hex, hueId]"
             },
             {
               "name": "name",

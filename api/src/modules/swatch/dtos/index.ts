@@ -1,1 +1,1 @@
-export * from './get-paginated-shades.args';
+export * from './get-paginated-swatches.args';

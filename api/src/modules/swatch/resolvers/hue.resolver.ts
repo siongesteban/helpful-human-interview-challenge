@@ -5,16 +5,16 @@ import {
   ResolveField,
   Query,
 } from '@nestjs/graphql';
-import { Hue, Shade } from '@prisma/client';
+import { Hue, Swatch } from '@prisma/client';
 
 import { GraphQLContext } from '@shared/graphql/types';
 
 import { Hue as HueModel } from '../models';
-import { SwatchService } from '../services';
+import { ColorService } from '../services';
 
 @Resolver(() => HueModel)
 export class HueResolver {
-  constructor(private readonly swatchService: SwatchService) {}
+  constructor(private readonly swatchService: ColorService) {}
 
   @Query(() => [HueModel], { name: 'hues' })
   async getAllHues(): Promise<Hue[]> {
@@ -22,10 +22,10 @@ export class HueResolver {
   }
 
   @ResolveField()
-  async shades(
+  async swatches(
     @Parent() hue: Hue,
     @Context() context: GraphQLContext,
-  ): Promise<Shade[]> {
-    return context.shadesLoader.load(hue.id);
+  ): Promise<Swatch[]> {
+    return context.swatchesLoader.load(hue.id);
   }
 }

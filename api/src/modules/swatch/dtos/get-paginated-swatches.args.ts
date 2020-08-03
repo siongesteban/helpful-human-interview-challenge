@@ -2,7 +2,7 @@ import { ArgsType, Field, Int } from '@nestjs/graphql';
 import { IsOptional, Min, MinLength } from 'class-validator';
 
 @ArgsType()
-export class GetPaginatedShadesArgs {
+export class GetPaginatedSwatchesArgs {
   @Field({ nullable: true })
   @MinLength(1)
   @IsOptional()

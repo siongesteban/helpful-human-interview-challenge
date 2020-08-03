@@ -1,11 +1,12 @@
 import 'module-alias/register';
 
-import { ValidationPipe} from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 
-import { Config } from './shared/config/types';
-import { AppModule } from './modules/app';
+import { Config } from '@shared/config/types';
+
+import { AppModule } from '@modules/app';
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule);

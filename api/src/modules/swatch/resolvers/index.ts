@@ -1,2 +1,2 @@
 export * from './hue.resolver';
-export * from './shade.resolver';
+export * from './swatch.resolver';

@@ -1,36 +1,36 @@
 import { Injectable } from '@nestjs/common';
-import { Shade } from '@prisma/client';
+import { Swatch } from '@prisma/client';
 import capitalize from 'lodash/capitalize';
 
 import { BaseRepository } from '@shared/classes';
 import { PrismaService } from '@shared/prisma/services';
 import { PaginatedList, Repository } from '@shared/types';
 
-import { ShadePaginationParams } from '../types';
+import { SwatchPaginationParams } from '../types';
 
 @Injectable()
-export class ShadeRepository extends BaseRepository<Shade>
-  implements Repository<Shade> {
+export class SwatchRepository extends BaseRepository<Swatch>
+  implements Repository<Swatch> {
   constructor(private readonly prismaService: PrismaService) {
     super();
   }
 
   async getPaginatedList(
-    params?: ShadePaginationParams,
-  ): Promise<PaginatedList<Shade>> {
+    params?: SwatchPaginationParams,
+  ): Promise<PaginatedList<Swatch>> {
     const page = this.getPage(params.page);
     const pageSize = this.getPageSize(params.pageSize);
 
     const { query } = params;
 
-    const count = await this.prismaService.shade.count();
+    const count = await this.prismaService.swatch.count();
 
-    const shades = await this.prismaService.shade.findMany({
+    const swatches = await this.prismaService.swatch.findMany({
       where: {
         OR: [
           {
             hex: {
-              contains: query.toLowerCase(),
+              contains: query?.toLowerCase(),
             },
           },
           {
@@ -50,14 +50,14 @@ export class ShadeRepository extends BaseRepository<Shade>
       count,
       page,
       pageSize,
-      data: shades,
+      data: swatches,
     });
   }
 
-  getMany(params: { hueIDs?: number[] } = {}): Promise<Shade[]> {
+  getMany(params: { hueIDs?: number[] } = {}): Promise<Swatch[]> {
     const { hueIDs } = params;
 
-    return this.prismaService.shade.findMany({
+    return this.prismaService.swatch.findMany({
       where: {
         hueId: {
           in: hueIDs,

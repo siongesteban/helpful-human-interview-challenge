@@ -1,20 +1,20 @@
 import { Module } from '@nestjs/common';
 
-import { HueLoaderCreator, ShadesLoaderCreator } from './loaders';
-import { HueRepository, ShadeRepository } from './repositories';
-import { HueResolver, ShadeResolver } from './resolvers';
-import { SwatchService } from './services';
+import { HueLoaderCreator, SwatchesLoaderCreator } from './loaders';
+import { HueRepository, SwatchRepository } from './repositories';
+import { HueResolver, SwatchResolver } from './resolvers';
+import { ColorService } from './services';
 
 @Module({
   providers: [
     HueRepository,
-    ShadeRepository,
+    SwatchRepository,
     HueResolver,
-    ShadeResolver,
-    SwatchService,
+    SwatchResolver,
+    ColorService,
     HueLoaderCreator,
-    ShadesLoaderCreator,
+    SwatchesLoaderCreator,
   ],
-  exports: [HueLoaderCreator, ShadesLoaderCreator],
+  exports: [HueLoaderCreator, SwatchesLoaderCreator],
 })
 export class SwatchModule {}

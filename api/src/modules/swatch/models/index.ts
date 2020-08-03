@@ -1,3 +1,3 @@
 export * from './hue.model';
-export * from './shade.model';
-export * from './paginated-shades.model';
+export * from './paginated-swatches.model';
+export * from './swatch.model';

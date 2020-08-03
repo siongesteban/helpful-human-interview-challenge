@@ -1,2 +1,2 @@
 export * from './hue.loader';
-export * from './shades.loader';
+export * from './swatches.loader';

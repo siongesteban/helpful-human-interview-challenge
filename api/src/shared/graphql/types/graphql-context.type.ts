@@ -1,6 +1,6 @@
-import { HueLoader, ShadesLoader } from '@modules/swatch/types';
+import { HueLoader, SwatchesLoader } from '@modules/swatch/types';
 
 export interface GraphQLContext {
   hueLoader: HueLoader;
-  shadesLoader: ShadesLoader;
+  swatchesLoader: SwatchesLoader;
 }

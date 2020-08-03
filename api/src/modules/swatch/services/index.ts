@@ -1,1 +1,1 @@
-export * from './swatch.service';
+export * from './color.service';

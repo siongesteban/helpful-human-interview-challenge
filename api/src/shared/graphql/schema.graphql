@@ -4,14 +4,12 @@
 
 type Hue {
   id: Int!
-
-  """Name of the color hue."""
   name: String!
-  shades: [Shade!]!
+  swatches: [Swatch!]!
 }
 
-type PaginatedShades {
-  list: [Shade!]!
+type PaginatedSwatches {
+  list: [Swatch!]!
   meta: PaginationMeta!
 }
 
@@ -24,15 +22,11 @@ type PaginationMeta {
 
 type Query {
   hues: [Hue!]!
-  paginatedShades(page: Int, pageSize: Int, query: String): PaginatedShades!
+  paginatedSwatches(page: Int, pageSize: Int, query: String): PaginatedSwatches!
 }
 
-type Shade {
-  """Hex code of the color."""
+type Swatch {
   hex: String!
   hue: Hue!
   id: Int!
-
-  """Shade number."""
-  number: String!
 }
