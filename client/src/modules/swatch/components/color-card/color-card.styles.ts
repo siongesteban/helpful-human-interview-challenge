@@ -15,7 +15,8 @@ const Wrapper = styled.div`
   border: 1px solid #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-  width: 220px;
+  /* width: 220px; */
+  width: 100%;
 `;
 
 const Color = styled.div<ColorProps>`
