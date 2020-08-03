@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
+import { ColorCardProps } from './color-card.component';
+
 interface ColorProps {
-  color: string;
+  readonly color: string;
+  readonly small?: boolean;
 }
 
 const getColorBackground = ({ color }: ColorProps): string => color;
+
+const getColorHeight = ({ small }: ColorProps): number => (small ? 175 : 218);
 
 const Wrapper = styled.div`
   border: 1px solid #fff;
@@ -17,7 +22,7 @@ const Color = styled.div<ColorProps>`
   background: ${getColorBackground};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  height: 218px;
+  height: ${getColorHeight}px;
 `;
 
 const Label = styled.div`
