@@ -8,6 +8,11 @@ export class GetPaginatedSwatchesArgs {
   @IsOptional()
   query?: string;
 
+  @Field({ nullable: true })
+  @MinLength(1)
+  @IsOptional()
+  color?: string;
+
   @Field(() => Int, { nullable: true })
   @Min(1)
   @IsOptional()

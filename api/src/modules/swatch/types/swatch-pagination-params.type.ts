@@ -2,6 +2,7 @@ import { PaginationParams } from '@shared/types';
 
 export type SwatchPaginationParams = Partial<
   PaginationParams & {
-    query?: string;
+    query: string;
+    color: string;
   }
 >;

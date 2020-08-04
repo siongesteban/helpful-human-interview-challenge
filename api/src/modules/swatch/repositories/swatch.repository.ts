@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Swatch, SwatchColor } from '@prisma/client';
+import { Swatch, SwatchColor, FindManySwatchArgs } from '@prisma/client';
 import capitalize from 'lodash/capitalize';
 
 import { BaseRepository } from '@shared/classes';
@@ -25,30 +25,33 @@ export class SwatchRepository extends BaseRepository<Swatch>
     const page = this.getPage(params.page);
     const pageSize = this.getPageSize(params.pageSize);
 
-    const { query } = params;
+    const { query, color } = params;
 
     const count = await this.prismaService.swatch.count();
 
-    const swatches = await this.prismaService.swatch.findMany({
-      where: {
-        OR: [
-          {
-            hex: {
-              contains: query?.toLowerCase(),
-            },
-          },
-          {
-            hue: {
-              name: {
-                contains: capitalize(query),
-              },
-            },
-          },
-        ],
-      },
+    const findManySwatchArgs: FindManySwatchArgs = {
+      where: {},
       take: pageSize,
       skip: this.getPaginationOffset({ page, pageSize }),
-    });
+    };
+
+    if (query) {
+      findManySwatchArgs.where.hex = {
+        contains: query,
+      };
+    }
+
+    if (color) {
+      findManySwatchArgs.where.hue = {
+        name: {
+          equals: capitalize(color),
+        },
+      };
+    }
+
+    const swatches = await this.prismaService.swatch.findMany(
+      findManySwatchArgs,
+    );
 
     return this.createPaginationPayload({
       count,
