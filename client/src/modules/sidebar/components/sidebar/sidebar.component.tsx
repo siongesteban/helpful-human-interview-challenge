@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Button } from 'shared/components';
-
 import { Menu } from '../menu';
+import { RandomColorButton } from '../random-color-button';
 import { S } from './sidebar.styles';
 
 export const Sidebar: React.FC = () => (
   <S.Wrapper>
-    <Button fullWidth>Random Color</Button>
+    <RandomColorButton />
     <Menu />
   </S.Wrapper>
 );

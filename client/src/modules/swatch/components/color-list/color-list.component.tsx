@@ -26,7 +26,7 @@ export const ColorList: React.FC = () => {
     color: queryParams.hue,
     query: queryParams.search,
     page: 1,
-    pageSize: 6,
+    pageSize: 12,
   });
 
   if (loading) {
@@ -38,7 +38,7 @@ export const ColorList: React.FC = () => {
   }
 
   const handleItemClick = (id: number): void => {
-    navigate(`swatches/${id}`);
+    navigate(`/swatches/${id}`);
   };
 
   return (
