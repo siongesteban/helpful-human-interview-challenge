@@ -22,4 +22,8 @@ export class ColorService {
   ): Promise<PaginatedList<Swatch>> {
     return this.swatchRepository.getPaginatedList(params);
   }
+
+  async getSwatchById(swatchId: number): Promise<Swatch> {
+    return this.swatchRepository.getById(swatchId);
+  }
 }

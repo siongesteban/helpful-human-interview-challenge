@@ -15,6 +15,10 @@ export class SwatchRepository extends BaseRepository<Swatch>
     super();
   }
 
+  async getById(swatchId: number): Promise<Swatch> {
+    return this.prismaService.swatch.findOne({ where: { id: swatchId } });
+  }
+
   async getPaginatedList(
     params?: SwatchPaginationParams,
   ): Promise<PaginatedList<Swatch>> {

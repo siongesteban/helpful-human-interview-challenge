@@ -1,6 +1,7 @@
 import {
   Args,
   Context,
+  Int,
   Parent,
   Resolver,
   ResolveField,
@@ -24,6 +25,13 @@ export class SwatchResolver {
     @Args() args?: GetPaginatedSwatchesArgs,
   ): Promise<PaginatedList<Swatch>> {
     return this.swatchService.getPaginatedSwatches(args);
+  }
+
+  @Query(() => SwatchModel, { name: 'swatch' })
+  async getSwatchById(
+    @Args('id', { type: () => Int }) swatchId: number,
+  ): Promise<Swatch> {
+    return this.swatchService.getSwatchById(swatchId);
   }
 
   @ResolveField()
