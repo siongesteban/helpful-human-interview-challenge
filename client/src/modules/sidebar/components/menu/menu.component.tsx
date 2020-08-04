@@ -1,5 +1,6 @@
 import React from 'react';
-import { navigate } from '@reach/router';
+
+import { useQueryParams } from 'shared/hooks';
 
 import { useGetHues } from '../../hooks';
 import { S } from './menu.styles';
@@ -9,8 +10,10 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ name }) => {
+  const { setQueryParams } = useQueryParams();
+
   const handleClick = (): void => {
-    navigate(`?hue=${name.toLowerCase()}`);
+    setQueryParams({ hue: name.toLowerCase() });
   };
 
   return (
