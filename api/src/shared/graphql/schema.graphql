@@ -27,7 +27,14 @@ type Query {
 }
 
 type Swatch {
+  colors: [SwatchColor!]!
   hex: String!
   hue: Hue!
   id: Int!
+}
+
+type SwatchColor {
+  hex: String!
+  id: Int!
+  swatch: Swatch!
 }

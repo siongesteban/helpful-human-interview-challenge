@@ -1,6 +1,7 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 import { Hue } from './hue.model';
+import { SwatchColor } from './swatch-color.model';
 
 @ObjectType()
 export class Swatch {
@@ -12,4 +13,7 @@ export class Swatch {
 
   @Field(() => Hue)
   hue: Hue;
+
+  @Field(() => [SwatchColor])
+  colors: SwatchColor[];
 }

@@ -7,7 +7,7 @@ import {
   ResolveField,
   Query,
 } from '@nestjs/graphql';
-import { Hue, Swatch } from '@prisma/client';
+import { Hue, Swatch, SwatchColor } from '@prisma/client';
 
 import { GraphQLContext } from '@shared/graphql/types';
 import { PaginatedList } from '@shared/types';
@@ -40,5 +40,10 @@ export class SwatchResolver {
     @Context() context: GraphQLContext,
   ): Promise<Hue> {
     return context.hueLoader.load(swatch.hueId);
+  }
+
+  @ResolveField()
+  async colors(@Parent() swatch: Swatch): Promise<SwatchColor[]> {
+    return this.swatchService.getColorsBySwatchId(swatch.id);
   }
 }

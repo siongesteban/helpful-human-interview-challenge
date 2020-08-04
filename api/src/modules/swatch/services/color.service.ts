@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Hue, Swatch } from '@prisma/client';
+import { Hue, Swatch, SwatchColor } from '@prisma/client';
 
 import { PaginatedList } from '@shared/types';
 
@@ -25,5 +25,9 @@ export class ColorService {
 
   async getSwatchById(swatchId: number): Promise<Swatch> {
     return this.swatchRepository.getById(swatchId);
+  }
+
+  async getColorsBySwatchId(swatchId: number): Promise<SwatchColor[]> {
+    return this.swatchRepository.getColorsBySwatchId(swatchId);
   }
 }
