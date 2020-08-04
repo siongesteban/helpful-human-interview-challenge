@@ -35,12 +35,12 @@ export const Menu: React.FC = () => {
     return <p>Something went wrong while fetching the hues.</p>;
   }
 
-  const handleClick = (name: string): void => {
-    setQueryParams({ hue: name.toLowerCase() });
-  };
-
   const isActive = (name: string): boolean =>
     name.toLowerCase() === queryParams.hue;
+
+  const handleClick = (name: string): void => {
+    setQueryParams({ hue: isActive(name) ? null : name.toLowerCase() });
+  };
 
   return (
     <S.Wrapper>
