@@ -1,7 +1,24 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 
 import { useGetHues } from '../../hooks';
 import { S } from './menu.styles';
+
+interface ItemProps {
+  readonly name: string;
+}
+
+const Item: React.FC<ItemProps> = ({ name }) => {
+  const handleClick = (): void => {
+    navigate(`?hue=${name.toLowerCase()}`);
+  };
+
+  return (
+    <S.Item key={name} onClick={handleClick}>
+      {name}
+    </S.Item>
+  );
+};
 
 export const Menu: React.FC = () => {
   const { loading, error, data } = useGetHues();
@@ -16,8 +33,8 @@ export const Menu: React.FC = () => {
 
   return (
     <S.Wrapper>
-      {data?.hues.map(({ id, name }) => (
-        <S.Item key={id}>{name}</S.Item>
+      {data?.hues.map(({ name }) => (
+        <Item name={name} />
       ))}
     </S.Wrapper>
   );
