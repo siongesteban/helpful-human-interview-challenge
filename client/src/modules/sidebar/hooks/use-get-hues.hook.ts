@@ -1,5 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 
+import { Hue } from 'shared/types';
+
 const GET_HUES = gql`
   query GetHues {
     hues {
@@ -9,5 +11,4 @@ const GET_HUES = gql`
   }
 `;
 
-export const useGetHues = () =>
-  useQuery<{ hues: { id: number; name: string }[] }>(GET_HUES);
+export const useGetHues = () => useQuery<{ hues: Hue[] }>(GET_HUES);

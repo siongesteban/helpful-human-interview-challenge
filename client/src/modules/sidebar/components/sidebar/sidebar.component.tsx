@@ -8,17 +8,6 @@ import { S } from './sidebar.styles';
 export const Sidebar: React.FC = () => (
   <S.Wrapper>
     <Button fullWidth>Random Color</Button>
-    <Menu
-      items={[
-        'Red',
-        'Orange',
-        'Yellow',
-        'Green',
-        'Blue',
-        'Purple',
-        'Brown',
-        'Gray',
-      ]}
-    />
+    <Menu />
   </S.Wrapper>
 );

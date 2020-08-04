@@ -3,11 +3,7 @@ import React from 'react';
 import { useGetHues } from '../../hooks';
 import { S } from './menu.styles';
 
-export interface MenuProps {
-  readonly items: string[];
-}
-
-export const Menu: React.FC<MenuProps> = ({ items }) => {
+export const Menu: React.FC = () => {
   const { loading, error, data } = useGetHues();
 
   if (loading) {
@@ -15,7 +11,7 @@ export const Menu: React.FC<MenuProps> = ({ items }) => {
   }
 
   if (error) {
-    return <p>Oops. Something went wrong :(</p>;
+    return <p>Something went wrong while fetching the hues.</p>;
   }
 
   return (
