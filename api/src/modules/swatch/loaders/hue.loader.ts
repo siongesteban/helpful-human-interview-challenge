@@ -13,10 +13,10 @@ export class HueLoaderCreator {
     return new DataLoader(this.batchHues.bind(this));
   }
 
-  private async batchHues(hueIDs: number[]): Promise<Hue[]> {
-    const hues = await this.hueRepository.getMany({ hueIDs });
+  private async batchHues(hueIds: number[]): Promise<Hue[]> {
+    const hues = await this.hueRepository.getMany({ hueIds });
 
-    const hueMapByID = hues.reduce<Record<number, Hue>>((currentMap, hue) => {
+    const hueMapById = hues.reduce<Record<number, Hue>>((currentMap, hue) => {
       if (!currentMap[hue.id]) {
         currentMap[hue.id] = hue;
       }
@@ -24,6 +24,6 @@ export class HueLoaderCreator {
       return currentMap;
     }, {});
 
-    return hueIDs.map(hueID => hueMapByID[hueID]);
+    return hueIds.map(hueId => hueMapById[hueId]);
   }
 }

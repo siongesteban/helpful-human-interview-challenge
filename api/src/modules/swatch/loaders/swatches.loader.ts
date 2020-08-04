@@ -13,14 +13,14 @@ export class SwatchesLoaderCreator {
     return new DataLoader(this.batchSwatches.bind(this));
   }
 
-  private async batchSwatches(hueIDs: number[]): Promise<Swatch[][]> {
-    const swatches = await this.swatchRepository.getMany({ hueIDs });
+  private async batchSwatches(hueIds: number[]): Promise<Swatch[][]> {
+    const swatches = await this.swatchRepository.getMany({ hueIds });
 
-    const swatchesMapByID = swatches.reduce<Record<number, Swatch[]>>(
+    const swatchesMapById = swatches.reduce<Record<number, Swatch[]>>(
       (currentMap, swatch) => {
-        const swatchesByHueID = currentMap[swatch.hueId];
+        const swatchesByHueId = currentMap[swatch.hueId];
 
-        if (swatchesByHueID?.length) {
+        if (swatchesByHueId?.length) {
           currentMap[swatch.hueId].push(swatch);
 
           return currentMap;
@@ -33,6 +33,6 @@ export class SwatchesLoaderCreator {
       {},
     );
 
-    return hueIDs.map(hueID => swatchesMapByID[hueID]);
+    return hueIds.map(hueId => swatchesMapById[hueId]);
   }
 }

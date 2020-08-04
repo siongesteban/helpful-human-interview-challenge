@@ -54,13 +54,13 @@ export class SwatchRepository extends BaseRepository<Swatch>
     });
   }
 
-  getMany(params: { hueIDs?: number[] } = {}): Promise<Swatch[]> {
-    const { hueIDs } = params;
+  getMany(params: { hueIds?: number[] } = {}): Promise<Swatch[]> {
+    const { hueIds } = params;
 
     return this.prismaService.swatch.findMany({
       where: {
         hueId: {
-          in: hueIDs,
+          in: hueIds,
         },
       },
     });

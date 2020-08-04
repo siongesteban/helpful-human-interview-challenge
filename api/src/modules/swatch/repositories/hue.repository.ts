@@ -9,13 +9,13 @@ import { Repository } from '@shared/types';
 export class HueRepository implements Repository<Hue> {
   constructor(private readonly prismaService: PrismaService) {}
 
-  getMany(params: { hueIDs?: number[] } = {}): Promise<Hue[]> {
-    const { hueIDs } = params;
+  getMany(params: { hueIds?: number[] } = {}): Promise<Hue[]> {
+    const { hueIds } = params;
 
     return this.prismaService.hue.findMany({
       where: {
         id: {
-          in: hueIDs,
+          in: hueIds,
         },
       },
     });
