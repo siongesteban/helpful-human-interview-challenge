@@ -40,6 +40,7 @@ export type Query = {
 
 
 export type QueryPaginatedSwatchesArgs = {
+  color?: Maybe<Scalars['String']>;
   page?: Maybe<Scalars['Int']>;
   pageSize?: Maybe<Scalars['Int']>;
   query?: Maybe<Scalars['String']>;

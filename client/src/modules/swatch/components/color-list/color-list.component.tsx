@@ -7,10 +7,11 @@ import { useGetPaginatedSwatches } from '../../hooks';
 import { ColorCard } from '../color-card';
 
 export const ColorList: React.FC = () => {
-  const { queryParams } = useQueryParams<{ hue: string }>();
+  const { queryParams } = useQueryParams<{ hue: string; search: string }>();
 
   const { loading, error, data } = useGetPaginatedSwatches({
-    query: queryParams.hue,
+    color: queryParams.hue,
+    query: queryParams.search,
     page: 1,
     pageSize: 6,
   });
