@@ -2,17 +2,17 @@ import React from 'react';
 
 import { S } from './button.styles';
 
-export interface ButtonProps {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   readonly fullWidth?: boolean;
-  readonly style?: React.CSSProperties;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   fullWidth,
-  style,
+  ...restProps
 }) => (
-  <S.Wrapper fullWidth={fullWidth} style={style}>
+  <S.Wrapper fullWidth={fullWidth} {...restProps}>
     {children}
   </S.Wrapper>
 );
