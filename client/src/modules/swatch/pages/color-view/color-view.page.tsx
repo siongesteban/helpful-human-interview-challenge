@@ -25,7 +25,7 @@ export const ColorViewPage: React.FC<ColorViewPageProps> = ({ hex = '' }) => {
           <Grid container spacing={6}>
             {Array.from(Array(5)).map(() => (
               <Grid item xs>
-                <ColorCard fullWidth hex="ffc125" />
+                <ColorCard fullWidth small hex="ffc125" />
               </Grid>
             ))}
           </Grid>

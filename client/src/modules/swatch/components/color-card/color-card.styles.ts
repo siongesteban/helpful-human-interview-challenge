@@ -6,7 +6,7 @@ interface WrapperProps {
 }
 
 interface ColorProps {
-  readonly color: string;
+  readonly color?: string;
   readonly small?: boolean;
 }
 
@@ -16,9 +16,12 @@ const getWrapperCursor = ({ isClickable }: WrapperProps): string =>
 const getWrapperWidth = ({ fullWidth }: WrapperProps): string =>
   fullWidth ? '100%' : '220px';
 
-const getColorBackground = ({ color }: ColorProps): string => color;
+const getColorBackground = ({ color }: ColorProps): string => color || '#fff';
 
 const getColorHeight = ({ small }: ColorProps): number => (small ? 175 : 218);
+
+const getLabelPadding = ({ small }: ColorProps): string =>
+  small ? '20px 25px' : '10px 25px';
 
 const Wrapper = styled.div<WrapperProps>`
   border: 1px solid #fff;
@@ -41,9 +44,7 @@ const Label = styled.div`
   border-bottom-right-radius: 10px;
   color: #363c3c;
   font-size: 24px;
-  padding-top: 22px;
-  padding-left: 24px;
-  padding-bottom: 4px;
+  padding: ${getLabelPadding};
 `;
 
 export const S = {

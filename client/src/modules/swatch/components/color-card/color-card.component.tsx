@@ -31,7 +31,7 @@ export const ColorCard: React.FC<ColorCardProps> = ({
       onClick={handleClick}
     >
       <S.Color color={finalHex} small={small} />
-      <S.Label>{finalHex}</S.Label>
+      <S.Label small={small}>{finalHex}</S.Label>
     </S.Wrapper>
   );
 };

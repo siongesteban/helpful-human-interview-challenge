@@ -13,9 +13,7 @@ const Color = styled(ColorCardStyles.Color)`
 
 const Label = styled(ColorCardStyles.Label)`
   font-size: 48px;
-  padding-top: 42px;
-  padding-left: 45px;
-  padding-bottom: 25px;
+  padding: 40px;
 `;
 
 export const S = {
