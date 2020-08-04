@@ -8,13 +8,14 @@ import { useGetPaginatedSwatches } from '../../hooks';
 import { ColorCard } from '../color-card';
 
 interface ItemProps {
+  readonly id: number;
   readonly hex: string;
-  readonly onClick: (hex: string) => void;
+  readonly onClick: (id: number) => void;
 }
 
-const Item: React.FC<ItemProps> = ({ hex, onClick }) => (
+const Item: React.FC<ItemProps> = ({ id, hex, onClick }) => (
   <Grid item xs={6} md={4} lg={2}>
-    <ColorCard hex={hex} onClick={onClick} />
+    <ColorCard id={id} hex={hex} onClick={onClick} />
   </Grid>
 );
 
@@ -36,14 +37,14 @@ export const ColorList: React.FC = () => {
     return <p>Something went wrong while fetching swatches.</p>;
   }
 
-  const handleItemClick = (hex: string): void => {
-    navigate(`swatches/${hex}`);
+  const handleItemClick = (id: number): void => {
+    navigate(`swatches/${id}`);
   };
 
   return (
     <Grid container spacing={6}>
       {data?.paginatedSwatches.list.map(({ id, hex }) => (
-        <Item hex={hex} onClick={handleItemClick} />
+        <Item id={id} hex={hex} onClick={handleItemClick} />
       ))}
     </Grid>
   );

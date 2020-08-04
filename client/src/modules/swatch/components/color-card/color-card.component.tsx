@@ -4,13 +4,15 @@ import { getHex } from '../../utils';
 import { S } from './color-card.styles';
 
 export interface ColorCardProps {
+  readonly id: number;
   readonly fullWidth?: boolean;
   readonly hex: string;
   readonly small?: boolean;
-  readonly onClick?: (hex: string) => void;
+  readonly onClick?: (id: number) => void;
 }
 
 export const ColorCard: React.FC<ColorCardProps> = ({
+  id,
   fullWidth,
   hex,
   small,
@@ -18,7 +20,7 @@ export const ColorCard: React.FC<ColorCardProps> = ({
 }) => {
   const handleClick = (): void => {
     if (onClick) {
-      onClick(hex);
+      onClick(id);
     }
   };
 
