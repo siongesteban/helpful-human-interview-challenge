@@ -22,6 +22,7 @@ const GET_PAGINATED_SWATCHES = gql`
         totalCount
       }
       list {
+        id
         hex
         hue {
           name

@@ -2,12 +2,16 @@ import styled from 'styled-components';
 
 interface WrapperProps {
   readonly fullWidth?: boolean;
+  readonly isClickable?: boolean;
 }
 
 interface ColorProps {
   readonly color: string;
   readonly small?: boolean;
 }
+
+const getWrapperCursor = ({ isClickable }: WrapperProps): string =>
+  isClickable ? 'pointer' : 'default';
 
 const getWrapperWidth = ({ fullWidth }: WrapperProps): string =>
   fullWidth ? '100%' : '220px';
@@ -20,6 +24,7 @@ const Wrapper = styled.div<WrapperProps>`
   border: 1px solid #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  cursor: ${getWrapperCursor};
   width: ${getWrapperWidth};
 `;
 
