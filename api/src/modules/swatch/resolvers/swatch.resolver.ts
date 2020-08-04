@@ -27,10 +27,10 @@ export class SwatchResolver {
     return this.swatchService.getPaginatedSwatches(args);
   }
 
-  @Query(() => SwatchModel, { name: 'swatch' })
+  @Query(() => SwatchModel, { name: 'swatch', nullable: true })
   async getSwatchById(
     @Args('id', { type: () => Int }) swatchId: number,
-  ): Promise<Swatch> {
+  ): Promise<Swatch | null> {
     return this.swatchService.getSwatchById(swatchId);
   }
 

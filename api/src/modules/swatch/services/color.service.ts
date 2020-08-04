@@ -23,7 +23,7 @@ export class ColorService {
     return this.swatchRepository.getPaginatedList(params);
   }
 
-  async getSwatchById(swatchId: number): Promise<Swatch> {
+  async getSwatchById(swatchId: number): Promise<Swatch | null> {
     return this.swatchRepository.getById(swatchId);
   }
 

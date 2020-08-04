@@ -23,7 +23,7 @@ type PaginationMeta {
 type Query {
   hues: [Hue!]!
   paginatedSwatches(color: String, page: Int, pageSize: Int, query: String): PaginatedSwatches!
-  swatch(id: Int!): Swatch!
+  swatch(id: Int!): Swatch
 }
 
 type Swatch {

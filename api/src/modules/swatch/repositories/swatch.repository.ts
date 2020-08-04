@@ -15,7 +15,7 @@ export class SwatchRepository extends BaseRepository<Swatch>
     super();
   }
 
-  async getById(swatchId: number): Promise<Swatch> {
+  async getById(swatchId: number): Promise<Swatch | null> {
     return this.prismaService.swatch.findOne({ where: { id: swatchId } });
   }
 
