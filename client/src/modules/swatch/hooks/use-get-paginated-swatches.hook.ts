@@ -1,10 +1,10 @@
 import { useQuery, gql } from '@apollo/client';
 
-import { PaginatedSwatches } from 'shared/types';
+import { PaginatedSwatches, QueryPaginatedSwatchesArgs } from 'shared/types';
 
 const GET_PAGINATED_SWATCHES = gql`
-  query GetPaginatedSwatches {
-    paginatedSwatches(pageSize: 12) {
+  query GetPaginatedSwatches($query: String, $page: Int!, $pageSize: Int!) {
+    paginatedSwatches(query: $query, page: $page, pageSize: $pageSize) {
       meta {
         page
         pageSize
@@ -21,5 +21,7 @@ const GET_PAGINATED_SWATCHES = gql`
   }
 `;
 
-export const useGetPaginatedSwatches = () =>
-  useQuery<{ paginatedSwatches: PaginatedSwatches }>(GET_PAGINATED_SWATCHES);
+export const useGetPaginatedSwatches = (args: QueryPaginatedSwatchesArgs) =>
+  useQuery<{ paginatedSwatches: PaginatedSwatches }>(GET_PAGINATED_SWATCHES, {
+    variables: args,
+  });

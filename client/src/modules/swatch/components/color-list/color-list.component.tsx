@@ -1,14 +1,22 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
+import { useQueryParams } from 'shared/hooks';
+
 import { useGetPaginatedSwatches } from '../../hooks';
 import { ColorCard } from '../color-card';
 
 export const ColorList: React.FC = () => {
-  const { loading, error, data } = useGetPaginatedSwatches();
+  const { queryParams } = useQueryParams<{ hue: string }>();
+
+  const { loading, error, data } = useGetPaginatedSwatches({
+    query: queryParams.hue,
+    page: 1,
+    pageSize: 6,
+  });
 
   if (loading) {
-    return <p>Loading...</p>;
+    return null;
   }
 
   if (error) {
