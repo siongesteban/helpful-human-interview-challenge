@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 
 import { useQueryParams } from 'shared/hooks';
 
@@ -39,6 +40,7 @@ export const Menu: React.FC = () => {
     name.toLowerCase() === queryParams.hue;
 
   const handleClick = (name: string): void => {
+    navigate('/');
     setQueryParams({ hue: isActive(name) ? null : name.toLowerCase() });
   };
 
