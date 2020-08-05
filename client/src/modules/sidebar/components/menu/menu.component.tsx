@@ -41,7 +41,10 @@ export const Menu: React.FC = () => {
 
   const handleClick = (name: string): void => {
     navigate('/');
-    setQueryParams({ hue: isActive(name) ? null : name.toLowerCase() });
+    setQueryParams({
+      hue: isActive(name) ? null : name.toLowerCase(),
+      page: null,
+    });
   };
 
   return (
