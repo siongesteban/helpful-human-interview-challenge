@@ -1,12 +1,13 @@
 import { PrismaClient } from '@prisma/client';
 
-import { seedHue } from './seeders';
+import { seedHue, seedSwatch } from './seeders';
 
 const prisma = new PrismaClient();
 
 const main = async (): Promise<void> => {
   try {
     await seedHue(prisma);
+    await seedSwatch(prisma);
 
     console.log('Done.');
   } catch (e) {
