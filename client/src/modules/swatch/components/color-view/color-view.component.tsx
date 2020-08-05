@@ -2,7 +2,7 @@ import React from 'react';
 import { navigate } from '@reach/router';
 import Grid from '@material-ui/core/Grid';
 
-import { Button } from 'shared/components';
+import { Button, ContentLoader, ContentMessage } from 'shared/components';
 
 import { useGetSwatch } from '../../hooks';
 import { generateColorShades } from '../../utils';
@@ -17,15 +17,17 @@ export const ColorView: React.FC<ColorViewProps> = ({ swatchId }) => {
   const { loading, error, data } = useGetSwatch({ id: swatchId });
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <ContentLoader />;
   }
 
   if (error) {
-    return <p>Something went wrong while fetching swatch.</p>;
+    return (
+      <ContentMessage message="Something went wrong while fetching swatch." />
+    );
   }
 
   if (!data) {
-    return null;
+    return <ContentMessage message="No data." />;
   }
 
   const handleClearButtonClick = (): void => {

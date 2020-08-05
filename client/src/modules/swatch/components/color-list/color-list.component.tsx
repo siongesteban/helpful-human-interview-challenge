@@ -2,6 +2,7 @@ import React from 'react';
 import { navigate } from '@reach/router';
 import Grid from '@material-ui/core/Grid';
 
+import { ContentLoader, ContentMessage } from 'shared/components';
 import { useQueryParams } from 'shared/hooks';
 
 import { useGetPaginatedSwatches } from '../../hooks';
@@ -33,12 +34,18 @@ export const ColorList: React.FC = () => {
     pageSize: 12,
   });
 
-  if (loading || !data) {
-    return null;
+  if (loading) {
+    return <ContentLoader />;
+  }
+
+  if (!data) {
+    return <ContentMessage message="No data." />;
   }
 
   if (error) {
-    return <p>Something went wrong while fetching swatches.</p>;
+    return (
+      <ContentMessage message="Something went wrong while fetching swatches." />
+    );
   }
 
   const handleItemClick = (id: number): void => {
