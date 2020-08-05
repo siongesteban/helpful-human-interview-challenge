@@ -2,7 +2,6 @@ import React from 'react';
 import { navigate } from '@reach/router';
 import Grid from '@material-ui/core/Grid';
 
-import { Pagination } from 'shared/components';
 import { useQueryParams } from 'shared/hooks';
 
 import { useGetPaginatedSwatches } from '../../hooks';
@@ -42,20 +41,11 @@ export const ColorList: React.FC = () => {
     navigate(`/swatches/${id}`);
   };
 
-  const { list, meta } = data.paginatedSwatches;
-
   return (
-    <>
-      <Grid container spacing={6}>
-        {list.map(({ id, hex }) => (
-          <Item id={id} hex={hex} onClick={handleItemClick} />
-        ))}
-      </Grid>
-      <Grid container justify="center" style={{ marginTop: 75 }}>
-        <Grid item>
-          <Pagination pageCount={meta.pageCount} />
-        </Grid>
-      </Grid>
-    </>
+    <Grid container spacing={6}>
+      {data.paginatedSwatches.list.map(({ id, hex }) => (
+        <Item id={id} hex={hex} onClick={handleItemClick} />
+      ))}
+    </Grid>
   );
 };
