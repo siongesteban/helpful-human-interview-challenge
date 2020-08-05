@@ -12,7 +12,7 @@ export const SearchInput: React.FC = () => {
     target,
   }) => {
     debounce(() => {
-      setQueryParams({ search: target.value || null });
+      setQueryParams({ search: target.value || null, page: 1 });
     }, 500)();
   };
 
