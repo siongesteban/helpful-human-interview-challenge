@@ -27,8 +27,6 @@ export class SwatchRepository extends BaseRepository<Swatch>
 
     const { query, color } = params;
 
-    const count = await this.prismaService.swatch.count();
-
     const findManySwatchArgs: FindManySwatchArgs = {
       where: {},
       take: pageSize,
@@ -48,6 +46,10 @@ export class SwatchRepository extends BaseRepository<Swatch>
         },
       };
     }
+
+    const count = await this.prismaService.swatch.count({
+      where: findManySwatchArgs.where,
+    });
 
     const swatches = await this.prismaService.swatch.findMany(
       findManySwatchArgs,
