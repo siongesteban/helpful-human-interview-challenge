@@ -4,20 +4,19 @@ import { random } from 'lodash-es';
 
 import { Button } from 'shared/components';
 
-import { useGetPaginatedSwatchesStore } from 'modules/swatch/hooks';
+import { useGetTotalCountOfSwatches } from 'modules/swatch/hooks';
 
 export const RandomColorButton: React.FC = () => {
-  const paginatedSwatchesStore = useGetPaginatedSwatchesStore();
-  const totalNumberOfSwatches = paginatedSwatchesStore?.meta.totalCount;
+  const totalCountOfSwatches = useGetTotalCountOfSwatches();
 
   const handleClick = (): void => {
-    const randomSwatchId = random(1, totalNumberOfSwatches || 1);
+    const randomSwatchId = random(1, totalCountOfSwatches);
 
     navigate(`/swatches/${randomSwatchId}`);
   };
 
   return (
-    <Button disabled={!totalNumberOfSwatches} fullWidth onClick={handleClick}>
+    <Button disabled={!totalCountOfSwatches} fullWidth onClick={handleClick}>
       Random Color
     </Button>
   );
