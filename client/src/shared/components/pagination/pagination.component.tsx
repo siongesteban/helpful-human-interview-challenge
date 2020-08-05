@@ -34,6 +34,10 @@ export const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const { setQueryParams } = useQueryParams();
 
+  if (pageCount <= 1) {
+    return null;
+  }
+
   const handleClick = (pageNumber: number): void => {
     setQueryParams({ page: pageNumber });
   };
