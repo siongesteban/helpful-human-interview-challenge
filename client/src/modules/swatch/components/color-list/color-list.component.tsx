@@ -14,8 +14,8 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ id, hex, onClick }) => (
-  <Grid item xs={6} md={4} lg={2}>
-    <ColorCard id={id} hex={hex} onClick={onClick} />
+  <Grid item xs={12} md={4} lg={3} xl={2}>
+    <ColorCard fullWidth id={id} hex={hex} onClick={onClick} />
   </Grid>
 );
 
