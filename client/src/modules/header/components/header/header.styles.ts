@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { ReactComponent as LogoSvg } from 'shared/assets/svg/logo.svg';
+
 const Wrapper = styled.header`
   background: #363c3c;
   font-size: 24px;
@@ -10,6 +12,11 @@ const Wrapper = styled.header`
   padding: 0 30px;
 `;
 
+const Logo = styled(LogoSvg)`
+  cursor: pointer;
+`;
+
 export const S = {
   Wrapper,
+  Logo,
 };
