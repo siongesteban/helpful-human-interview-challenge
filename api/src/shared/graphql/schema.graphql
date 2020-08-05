@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Hue {
+  id: Int!
+  name: String!
+  swatches: [Swatch!]!
+}
+
+type PaginatedSwatches {
+  list: [Swatch!]!
+  meta: PaginationMeta!
+}
+
+type PaginationMeta {
+  page: Int!
+  pageCount: Int!
+  pageSize: Int!
+  totalCount: Int!
+}
+
+type Query {
+  hues: [Hue!]!
+  paginatedSwatches(color: String, page: Int, pageSize: Int, query: String): PaginatedSwatches!
+  swatch(id: Int!): Swatch
+}
+
+type Swatch {
+  hex: String!
+  hue: Hue!
+  id: Int!
+}

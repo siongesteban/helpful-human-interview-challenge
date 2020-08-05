@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Hue {
+  id        Int      @default(autoincrement()) @id
+  name      String
+  createdAt DateTime @map("created_at") @default(now())
+
+  swatches Swatch[]
+
+  @@map("hue")
+  @@unique([name], name: "unique_hue")
+}
+
+model Swatch {
+  id        Int      @default(autoincrement()) @id
+  hex       String
+  createdAt DateTime @map("created_at") @default(now())
+
+  hue   Hue @relation(fields: [hueId], references: [id])
+  hueId Int @map("hue_id")
+
+  @@map("swatch")
+  @@unique([hex, hueId], name: "unique_swatch")
+}
