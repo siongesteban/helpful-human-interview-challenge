@@ -20,12 +20,16 @@ const Item: React.FC<ItemProps> = ({ id, hex, onClick }) => (
 );
 
 export const ColorList: React.FC = () => {
-  const { queryParams } = useQueryParams<{ hue: string; search: string }>();
+  const { queryParams } = useQueryParams<
+    Record<'hue' | 'search' | 'page', string>
+  >();
+
+  const { hue, search, page } = queryParams;
 
   const { loading, error, data } = useGetPaginatedSwatches({
-    color: queryParams.hue,
-    query: queryParams.search,
-    page: 1,
+    color: hue,
+    query: search,
+    page: page ? Number(queryParams.page) : 1,
     pageSize: 12,
   });
 
