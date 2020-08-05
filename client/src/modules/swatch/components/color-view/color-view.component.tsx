@@ -1,10 +1,11 @@
 import React from 'react';
-import { navigate, RouteComponentProps } from '@reach/router';
+import { navigate } from '@reach/router';
 import Grid from '@material-ui/core/Grid';
 
 import { Button } from 'shared/components';
 
 import { useGetSwatch } from '../../hooks';
+import { generateColorShades } from '../../utils';
 import { ColorCard } from '../color-card';
 import { LargeColorCard } from '../large-color-card';
 
@@ -31,7 +32,9 @@ export const ColorView: React.FC<ColorViewProps> = ({ swatchId }) => {
     navigate('/');
   };
 
-  const { hex, colors } = data.swatch;
+  const { hex } = data.swatch;
+
+  const shades = generateColorShades(`#${hex}`);
 
   return (
     <>
@@ -41,9 +44,9 @@ export const ColorView: React.FC<ColorViewProps> = ({ swatchId }) => {
         </Grid>
         <Grid item xs={12}>
           <Grid container spacing={6}>
-            {colors.map((color) => (
+            {shades.map((shade, i) => (
               <Grid item xs>
-                <ColorCard id={color.id} fullWidth small hex={color.hex} />
+                <ColorCard id={i} fullWidth small hex={shade} />
               </Grid>
             ))}
           </Grid>
