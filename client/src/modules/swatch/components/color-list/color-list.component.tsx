@@ -30,7 +30,7 @@ export const ColorList: React.FC = () => {
     pageSize: 12,
   });
 
-  if (loading) {
+  if (loading || !data) {
     return null;
   }
 
@@ -42,16 +42,18 @@ export const ColorList: React.FC = () => {
     navigate(`/swatches/${id}`);
   };
 
+  const { list, meta } = data.paginatedSwatches;
+
   return (
     <>
       <Grid container spacing={6}>
-        {data?.paginatedSwatches.list.map(({ id, hex }) => (
+        {list.map(({ id, hex }) => (
           <Item id={id} hex={hex} onClick={handleItemClick} />
         ))}
       </Grid>
       <Grid container justify="center" style={{ marginTop: 75 }}>
         <Grid item>
-          <Pagination pageCount={8} />
+          <Pagination pageCount={meta.pageCount} />
         </Grid>
       </Grid>
     </>
