@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Swatch, SwatchColor, FindManySwatchArgs } from '@prisma/client';
+import { Swatch, FindManySwatchArgs } from '@prisma/client';
 import capitalize from 'lodash/capitalize';
 
 import { BaseRepository } from '@shared/classes';
@@ -73,9 +73,5 @@ export class SwatchRepository extends BaseRepository<Swatch>
         },
       },
     });
-  }
-
-  async getColorsBySwatchId(swatchId: number): Promise<SwatchColor[]> {
-    return this.prismaService.swatchColor.findMany({ where: { swatchId } });
   }
 }

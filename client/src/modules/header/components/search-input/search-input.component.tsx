@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { debounce } from 'lodash-es';
 
 import { useQueryParams } from 'shared/hooks';

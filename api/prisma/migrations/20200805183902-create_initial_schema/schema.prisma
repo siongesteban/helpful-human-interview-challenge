@@ -29,39 +29,6 @@ model Swatch {
   hue   Hue @relation(fields: [hueId], references: [id])
   hueId Int @map("hue_id")
 
-  colors SwatchColor[]
-
   @@map("swatch")
   @@unique([hex, hueId], name: "unique_swatch")
-}
-
-model SwatchColor {
-  id          Int               @default(autoincrement()) @id
-  hex         String
-  number      SwatchColorNumber
-  paletteType SwatchPaletteType @map("palette_type")
-  createdAt   DateTime          @map("created_at") @default(now())
-
-  swatchId Int    @map("swatch_id")
-  swatch   Swatch @relation(fields: [swatchId], references: [id])
-
-  @@map("swatch_color")
-  @@unique([hex, swatchId], name: "unique_swatch_color")
-}
-
-enum SwatchPaletteType {
-  SHADE
-  TINT
-
-  @@map("swatch_palette_type")
-}
-
-enum SwatchColorNumber {
-  N100
-  N200
-  N300
-  N400
-  N500
-
-  @@map("swatch_color_number")
 }

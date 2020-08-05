@@ -35,7 +35,7 @@ export type Query = {
   __typename?: 'Query';
   hues: Array<Hue>;
   paginatedSwatches: PaginatedSwatches;
-  swatch: Swatch;
+  swatch?: Maybe<Swatch>;
 };
 
 
@@ -53,17 +53,9 @@ export type QuerySwatchArgs = {
 
 export type Swatch = {
   __typename?: 'Swatch';
-  colors: Array<SwatchColor>;
   hex: Scalars['String'];
   hue: Hue;
   id: Scalars['Int'];
-};
-
-export type SwatchColor = {
-  __typename?: 'SwatchColor';
-  hex: Scalars['String'];
-  id: Scalars['Int'];
-  swatch: Swatch;
 };
 
 

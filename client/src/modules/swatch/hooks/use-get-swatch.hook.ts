@@ -7,9 +7,6 @@ const GET_SWATCH = gql`
     swatch(id: $id) {
       id
       hex
-      colors {
-        hex
-      }
     }
   }
 `;
